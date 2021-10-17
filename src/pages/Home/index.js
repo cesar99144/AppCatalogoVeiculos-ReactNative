@@ -15,11 +15,13 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import SlideItem from '../../components/SlideItem';
+import SlideItensDestaque from '../../components/SlideItensDestaque';
 import Api from '../../services/api';
-
+import { getListaVeiculos} from '../../utils/veiculos';
 export default function Home() {
 
     const [DestaquesVeiculos, setDestaquesVeiculos] = useState([]);
+    const [Carros, setCarros] = useState([]);
 
     useEffect( ()=>{
         
@@ -27,7 +29,15 @@ export default function Home() {
 
         async function getDestaques(){
             const response = await Api.get('/destaques');
-            console.log(response.data);
+            
+            setDestaquesVeiculos(response.data);
+        }
+
+        async function getCarros(){
+
+            const response = await Api.get('/carros');
+
+            setCarros(response.data);
         }
 
             // const [DestaquesData, CarrosData] = await Promise.all([
@@ -36,6 +46,7 @@ export default function Home() {
             // ])
 
             getDestaques();
+            getCarros();
             // console.log(response.data);
         
     });
@@ -66,8 +77,9 @@ export default function Home() {
 
             <SlideVeiculos showsHorizontalScrollIndicator={false}
               horizontal={true}
-              data={[1,2,3,4]}
-              renderItem={ ( { item }) => <SlideItem />}
+              keyExtractor={ item => String(item.idVeiculo) }
+              data={DestaquesVeiculos}
+              renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
             />
 
             <TituloBanner>Carros</TituloBanner>
@@ -75,8 +87,9 @@ export default function Home() {
             <SlideVeiculos 
             showsHorizontalScrollIndicator={false}
             horizontal={true}
-            data={[1,2,3,4]}
-            renderItem={ ( { item }) => <SlideItem />}
+            keyExtractor={ item => String(item.idVeiculo)}
+            data={Carros}
+            renderItem={ ( { item }) => <SlideItem data={item} />}
             />
         </ScrollView>
     </Container>
