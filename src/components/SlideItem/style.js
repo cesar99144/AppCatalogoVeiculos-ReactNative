@@ -13,7 +13,7 @@ export const BannerItem = styled.Image`
     width: 100%;
     height: 170px;
     border-radius: 8px;
-
+    background-color: white;
 `;
 
 export const Titulo = styled.Text`
