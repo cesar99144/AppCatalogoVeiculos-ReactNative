@@ -1,7 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import StackRoutes from "./stackRoutes";
+import Home from "./stackRoutes";
 
 const Drawer = createDrawerNavigator();
 
@@ -21,7 +21,7 @@ export default function Routes(){
                 drawerInactiveTintColor: '#FFF'
             }}
         >
-            <Drawer.Screen name="StackRoutes" component={StackRoutes} />
+            <Drawer.Screen name="Home" component={Home} />
         </Drawer.Navigator>
     );
 }
