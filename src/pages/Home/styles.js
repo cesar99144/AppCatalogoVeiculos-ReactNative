@@ -57,7 +57,7 @@ export const CardBanner = styled.View`
 `;
 
 export const TituloBanner = styled.Text`
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 8px;
     font-size: 24px;
     font-weight: bold;
