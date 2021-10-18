@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import Header from '../../components/Header';
 import {
    Container, 
@@ -18,19 +18,25 @@ import SlideItem from '../../components/SlideItem';
 import SlideItensDestaque from '../../components/SlideItensDestaque';
 import Api from '../../services/api';
 import { getListaVeiculos} from '../../utils/veiculos';
+
 export default function Home() {
 
     const [DestaquesVeiculos, setDestaquesVeiculos] = useState([]);
     const [Carros, setCarros] = useState([]);
+    const [Motos, setMotos] = useState([]);
+
+    const [loading, setLoading] = useState(true);
 
     useEffect( ()=>{
         
         let isActive = true;
+        const abort = new AbortController();
 
         async function getDestaques(){
             const response = await Api.get('/destaques');
             
             setDestaquesVeiculos(response.data);
+            setLoading(false);
         }
 
         async function getCarros(){
@@ -40,16 +46,35 @@ export default function Home() {
             setCarros(response.data);
         }
 
+        async function getMotos(){
+
+            const response = await Api.get('/motos');
+
+            setMotos(response.data);
+        }
+
             // const [DestaquesData, CarrosData] = await Promise.all([
             //     Api.get('/destaques'),
             //     Api.get('/carros')
             // ])
-
+            
             getDestaques();
             getCarros();
+            getMotos();
+            
             // console.log(response.data);
         
-    });
+    }, []);
+
+
+if(loading){
+    return(
+        <Container>
+            <ActivityIndicator size="large" color="#FFF" />
+        </Container>
+    )
+}
+
  return (
     <Container>
         <Header titulo="Catálogo veículo" />
@@ -89,7 +114,17 @@ export default function Home() {
             horizontal={true}
             keyExtractor={ item => String(item.idVeiculo)}
             data={Carros}
-            renderItem={ ( { item }) => <SlideItem data={item} />}
+            renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
+            />
+
+            <TituloBanner>Motos</TituloBanner>
+
+            <SlideVeiculos 
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            keyExtractor={ item => String(item.idVeiculo)}
+            data={Motos}
+            renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
             />
         </ScrollView>
     </Container>
