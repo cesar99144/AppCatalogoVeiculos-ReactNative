@@ -2,11 +2,32 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Container, BannerItem, Titulo } from './style';
 
+import {useNavigation} from '@react-navigation/native';
+
 export default function SlideItensDestaque({data}) {
- return (
-    <Container activeOpacity={0.7}>
+  
+  const navigation = useNavigation();
+  console.log(data.primeiraImagem);
+  function navigateDetalhes(item){
+    // console.log(item.idVeiculo)
+    navigation.navigate('Detalhes', 
+    {data: item.idVeiculo, 
+     titulo: item.tituloAnuncio, 
+     imagem: item.primeiraImagem,
+     preco: item.preco,
+     marca: item.marca,
+     km: item.km,
+     estadoVeiculo: item.estadoVeiculo,
+     ano: item.ano,
+     descricao: item.descricaoAnuncio,
+     modelo: item.modelo
+    })
+  }
+
+  return (
+    <Container activeOpacity={0.7} onPress={ () => navigateDetalhes(data)}>
         <BannerItem
-            source={{uri: `http://192.168.1.6:4000/imagensVeiculos/${data.primeiraImagem}`}}
+            source={{uri: `http://192.168.1.5:4000/imagensVeiculos/${data.primeiraImagem}`}}
         />
         <Titulo numberOfLines={1}>{data.tituloAnuncio}</Titulo>
     </Container>
