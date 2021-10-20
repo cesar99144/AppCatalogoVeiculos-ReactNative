@@ -17,7 +17,7 @@ export default function Header( { titulo }){
 
             <Titulo>{titulo}</Titulo>
 
-            <FiltroBotao>
+            <FiltroBotao onPress={ () => navigation.navigate("Filtro")}>
                 <Feather name="filter" size={36} color="#FFF" />
             </FiltroBotao>
 
