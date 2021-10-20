@@ -56,6 +56,11 @@ export const CardBanner = styled.View`
     align-items: center;
 `;
 
+export const ContainerTitulo = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
 export const TituloBanner = styled.Text`
     padding-top: 10px;
     padding-bottom: 8px;
@@ -66,7 +71,24 @@ export const TituloBanner = styled.Text`
     padding-right: 14px;
 `;
 
+export const BotaoVerMais = styled.TouchableOpacity`
+    width: 25%;
+    align-items: center;
+    height: 70%;
+    margin-top: 3%;
+    margin-right: 5px;
+`;
+
+export const TextoBotao = styled.Text`
+    color: white;
+    font-size: 19px;
+    margin-top: 3%;
+    text-align: center;
+    font-weight: bold;
+`;
+
 export const SlideVeiculos = styled.FlatList`
     height: 250px;
     padding: 0 14px;
 `;
+
