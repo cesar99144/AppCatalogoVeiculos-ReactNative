@@ -10,7 +10,10 @@ import {
    AreaCard,
    CardBanner,
    TituloBanner,
-   SlideVeiculos
+   SlideVeiculos,
+   ContainerTitulo,
+   BotaoVerMais,
+   TextoBotao
   } from './styles';
 import { Feather } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -18,6 +21,7 @@ import SlideItem from '../../components/SlideItem';
 import SlideItensDestaque from '../../components/SlideItensDestaque';
 import Api from '../../services/api';
 import { getListaVeiculos} from '../../utils/veiculos';
+import { useNavigation } from '@react-navigation/core';
 
 export default function Home() {
 
@@ -26,6 +30,8 @@ export default function Home() {
     const [Motos, setMotos] = useState([]);
 
     const [loading, setLoading] = useState(true);
+
+    const navigation = useNavigation();
 
     useEffect( ()=>{
         
@@ -107,7 +113,16 @@ if(loading){
               renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
             />
 
-            <TituloBanner>Carros</TituloBanner>
+            <ContainerTitulo>
+
+                <TituloBanner>Carros</TituloBanner>
+
+                <BotaoVerMais onPress={ () => navigation.navigate("Carros")}>
+                    <TextoBotao>Ver mais</TextoBotao>
+                </BotaoVerMais>
+
+            </ContainerTitulo>
+            
 
             <SlideVeiculos 
             showsHorizontalScrollIndicator={false}
