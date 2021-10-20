@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from '../pages/Home';
 import Detalhes from "../pages/Detalhes";
+import Filtro from "./../pages/Filtro";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +24,15 @@ export default function StackRoutes(){
                 options={{
                     headerShown: false,
                     title: 'Detalhes'
+                }}
+                
+            />
+            <Stack.Screen
+                name="Filtro"
+                component={Filtro}
+                options={{
+                    headerShown: false,
+                    title: 'Filtro'
                 }}
                 
             />
