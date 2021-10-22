@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, ScrollView, RefreshControl } from 'react-native';
 import Header from '../../components/Header';
 import {
    Container, 
@@ -16,7 +16,7 @@ import {
    TextoBotao
   } from './styles';
 import { Feather } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
+import {} from 'react-native-gesture-handler';
 import SlideItem from '../../components/SlideItem';
 import SlideItensDestaque from '../../components/SlideItensDestaque';
 import Api from '../../services/api';
@@ -31,33 +31,37 @@ export default function Home() {
 
     const [loading, setLoading] = useState(true);
 
+    const [refreshing, setRefreshing] = useState(false);
+
     const navigation = useNavigation();
+
+    let isActive = true;
+    const abort = new AbortController();
+
+    async function getDestaques(){
+        const response = await Api.get('/destaques');
+        
+        setDestaquesVeiculos(response.data);
+        setLoading(false);
+    }
+
+    async function getCarros(){
+
+        const response = await Api.get('/carros');
+
+        setCarros(response.data);
+    }
+
+    async function getMotos(){
+
+        const response = await Api.get('/motos');
+
+        setMotos(response.data);
+    }
 
     useEffect( ()=>{
         
-        let isActive = true;
-        const abort = new AbortController();
-
-        async function getDestaques(){
-            const response = await Api.get('/destaques');
-            
-            setDestaquesVeiculos(response.data);
-            setLoading(false);
-        }
-
-        async function getCarros(){
-
-            const response = await Api.get('/carros');
-
-            setCarros(response.data);
-        }
-
-        async function getMotos(){
-
-            const response = await Api.get('/motos');
-
-            setMotos(response.data);
-        }
+        
 
             // const [DestaquesData, CarrosData] = await Promise.all([
             //     Api.get('/destaques'),
@@ -72,10 +76,19 @@ export default function Home() {
         
     }, []);
 
+    const onRefresh = () =>{
+        setRefreshing(false);
+        getDestaques();
+        getCarros();
+        getMotos();
+    }
 
 if(loading){
     return(
         <Container>
+            <Header titulo="Catálogo veículo" />
+
+            
             <ActivityIndicator size="large" color="#FFF" />
         </Container>
     )
@@ -103,7 +116,12 @@ if(loading){
             </AreaCard>
         </BannerContainer> */}
 
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView 
+            showsVerticalScrollIndicator={false}
+            refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
+
             <TituloBanner>Destaques</TituloBanner>
 
             <SlideVeiculos showsHorizontalScrollIndicator={false}
