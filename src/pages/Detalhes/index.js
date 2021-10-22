@@ -67,7 +67,7 @@ export default function Detalhes(){
              
             <Banner
                 resizeMethod="resize"
-                source={{ uri: `http://192.168.1.9:4000/imagensVeiculos/${route.params?.imagem}` }}
+                source={{ uri: `http://192.168.1.8:4000/imagensVeiculos/${route.params?.imagem}` }}
             />
 
             <ContainerInfo>
