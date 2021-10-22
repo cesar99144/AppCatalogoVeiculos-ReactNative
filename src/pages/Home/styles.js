@@ -7,6 +7,10 @@ export const Container = styled.SafeAreaView`
     
 `;
 
+export const Carregamento = styled.ActivityIndicator`
+    
+`;
+
 export const SearchContainer = styled.View`
     flex-direction: row;
     width: 100%;
