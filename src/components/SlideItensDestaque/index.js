@@ -7,21 +7,21 @@ import {useNavigation} from '@react-navigation/native';
 export default function SlideItensDestaque({data}) {
   
   const navigation = useNavigation();
-  console.log(data.primeiraImagem);
+  
   function navigateDetalhes(item){
-    // console.log(item.idVeiculo)
-    navigation.navigate('Detalhes', 
-    {data: item.idVeiculo, 
-     titulo: item.tituloAnuncio, 
-     imagem: item.primeiraImagem,
-     preco: item.preco,
-     marca: item.marca,
-     km: item.km,
-     estadoVeiculo: item.estadoVeiculo,
-     ano: item.ano,
-     descricao: item.descricaoAnuncio,
-     modelo: item.modelo
-    })
+    
+      navigation.navigate('Detalhes', 
+      {data: item.idVeiculo, 
+      titulo: item.tituloAnuncio, 
+      imagem: item.primeiraImagem,
+      preco: item.preco,
+      marca: item.marca,
+      km: item.km,
+      estadoVeiculo: item.estadoVeiculo,
+      ano: item.ano,
+      descricao: item.descricaoAnuncio,
+      modelo: item.modelo
+      })
   }
 
   return (
