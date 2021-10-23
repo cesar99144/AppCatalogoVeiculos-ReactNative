@@ -19,9 +19,9 @@ export default function Preloader() {
 
         function load(){
             
-            // setTimeout(function(){
-            //     navigation.navigate('Routes');
-            // }, 2000);
+            setTimeout(function(){
+                navigation.navigate('Routes');
+            }, 2000);
         }
 
         load();
