@@ -18,7 +18,7 @@ export default function ListVeiculos({data}){
     return(
         <Container>
             <Card activeOpacity={0.7}>
-                <ImagemCapa source={{uri: `http://192.168.1.9:4000/imagensVeiculos/${data.primeiraImagem}`}} />
+                <ImagemCapa source={{uri: `http://192.168.1.5:4000/imagensVeiculos/${data.primeiraImagem}`}} />
                 <ContainerDescricao>
                     <TextTitulo>{data.tituloAnuncio}</TextTitulo>
                     <TextPreco>
