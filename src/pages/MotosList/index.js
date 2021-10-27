@@ -36,14 +36,29 @@ export default function MotosList(){
 
     return(
         <Container>
-            <Header titulo="Motos" />
+                <Header titulo="Motos" />
 
-            <ScrollView
-                showsVerticalScrollIndicator={false}
-                refreshControl={
-                    <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    refreshControl={
+                        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                }>
 
+                    <SearchContainer>
+                        <Input
+                        placeholder="Veículos"
+                        placeholderTextColor="#FFF"
+                        />
+                        <SearchButton>
+                            <Feather name="search" size={30} color="#FFF" />
+                        </SearchButton>
+                    </SearchContainer>
+
+                    <CardVeiculos
+                        data={motos}
+                        keyExtractor={ item => String(item.idVeiculo)}
+                        renderItem={ ( { item }) => <ListVeiculos data={item} />}
+                    />
             </ScrollView>
         </Container>
     );
