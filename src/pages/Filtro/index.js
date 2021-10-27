@@ -12,7 +12,9 @@ import {
     SearchButton,
     AreaDropDow,
     TituloDropDown,
-    ContainerDropDow
+    ContainerDropDow,
+    BotaoPesquisa,
+    TextoBotao
 } from './style';
 
 import {Feather} from '@expo/vector-icons';
@@ -22,6 +24,13 @@ export default function Filtro(){
 
     const navigation = useNavigation();
     const [marca, setMarca] = useState(0);
+    const [preco, setPreco] = useState(0);
+    const [ano, setAno] = useState(0);
+
+    function pesquisar(){
+
+        alert(ano)
+    }
 
     return(
         <Container>
@@ -59,8 +68,8 @@ export default function Filtro(){
                             onValueChange={(itemValue, itemIndex) =>
                             setMarca(itemValue)}
                         >
-                            <Picker.Item style={styles.pickerItem} color="black" label="Carro" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="Moto" value="java" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="Carro" value="Carro" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="Moto" value="Moto" />
                         </Picker>
                     </DropDownList>
                 </AreaDropDow>
@@ -69,13 +78,13 @@ export default function Filtro(){
                     <TituloDropDown>Faixa preço</TituloDropDown>
                     <DropDownList>
                         <Picker
-                            selectedValue={marca}
+                            selectedValue={preco}
                             onValueChange={(itemValue, itemIndex) =>
-                            setMarca(itemValue)}
+                            setPreco(itemValue)}
                         >
-                            <Picker.Item style={styles.pickerItem} color="black" label="R$ 20.000 > R$ 35.000" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="R$ 36.000 > R$ 45.000" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="R$ 36.000 > R$ 45.000" value="java" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="R$ 20.000 > R$ 35.000" value="1" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="R$ 36.000 > R$ 45.000" value="2" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="R$ 36.000 > R$ 45.000" value="3" />
                         </Picker>
                     </DropDownList>
                 </AreaDropDow>
@@ -84,25 +93,28 @@ export default function Filtro(){
                     <TituloDropDown>Ano</TituloDropDown>
                     <DropDownList>
                         <Picker
-                            selectedValue={marca}
+                            selectedValue={ano}
                             onValueChange={(itemValue, itemIndex) =>
-                            setMarca(itemValue)}
+                            setAno(itemValue)}
                         >
-                            <Picker.Item style={styles.pickerItem} color="black" label="2010" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2011" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2012" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2013" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2014" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2015" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2016" value="java" />
-                            <Picker.Item style={styles.pickerItem} color="black" label="2017" value="java" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2010" value="2010" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2011" value="2011" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2012" value="2012" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2013" value="2013" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2014" value="2014" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2015" value="2015" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2016" value="2016" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2017" value="2017" />
                         </Picker>
                     </DropDownList>
                 </AreaDropDow>
 
+                <BotaoPesquisa onPress={ () => pesquisar()}>
+                    <TextoBotao>Pesquisar</TextoBotao>
+                </BotaoPesquisa>
             </ContainerDropDow>
 
-            
+           
             
         </Container>
     );
