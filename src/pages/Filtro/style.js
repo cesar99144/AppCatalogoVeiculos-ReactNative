@@ -65,12 +65,14 @@ export const ContainerDropDow = styled.View`
     width: 100%;
     height: 100%;
     padding: 8px 14px;
+    align-items: center;
 `;
 
 export const ContainerDuploDrow = styled.View`
     width: 100%;
     height: 100%;
     flex-direction: row;
+    
 `;
 
 export const AreaDropDow = styled.View`
@@ -90,4 +92,19 @@ export const TituloDropDown = styled.Text`
     color: white;
     font-size: 19px;
     font-weight: bold;
+`;
+
+export const BotaoPesquisa = styled.TouchableOpacity`
+    background: #f58a43;
+    width: 93%;
+    padding: 8px 14px;
+    margin-top: 5%;
+    
+`;
+
+export const TextoBotao = styled.Text`
+    font-size: 17px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
 `;
