@@ -11,9 +11,10 @@ export const Header = styled.View`
     top: 25px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     flex-direction: row;
     padding: 0 14px;
+    
 `;
 
 export const HeaderButton = styled.TouchableOpacity`
@@ -29,7 +30,7 @@ export const Titulo = styled.Text`
     color: white;
     font-size: 25px;
     font-weight: bold;
-    
+    margin-left: 30%;
 `;
 
 export const SearchContainer = styled.View`
@@ -61,7 +62,7 @@ export const SearchButton = styled.TouchableOpacity`
 `;
 
 export const ContainerDropDow = styled.View`
-    margin-top: 3px;
+    margin-top: 20%;
     width: 100%;
     height: 100%;
     padding: 8px 14px;
@@ -85,7 +86,7 @@ export const AreaDropDow = styled.View`
 export const DropDownList = styled.View`
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.6);
-    margin-top: 5px;
+    margin-top: 10px;
 `;
 
 export const TituloDropDown = styled.Text`
@@ -97,7 +98,7 @@ export const TituloDropDown = styled.Text`
 export const BotaoPesquisa = styled.TouchableOpacity`
     background: #f58a43;
     width: 93%;
-    padding: 8px 14px;
+    padding: 10px;
     margin-top: 5%;
     
 `;
@@ -107,4 +108,5 @@ export const TextoBotao = styled.Text`
     color: white;
     font-size: 20px;
     text-align: center;
+    font-weight: bold;
 `;
