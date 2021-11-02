@@ -18,7 +18,7 @@ Projeto de um aplicativo mobile para exibir um catálogo de veículos à venda. 
 
 <h3>Foi utilizado:</h3>
 <ul>
-    <li>React native expo</li> <br>
+    <li>React native expo</li>
     <li>Axios para as requisições HTTP</li> <br>
 </ul>
 
