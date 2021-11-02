@@ -69,7 +69,7 @@ export const TextInfo = styled.Text`
 export const Descricao = styled.Text`
     font-size: 20px;
     padding: 8px 14px;
-    margin-top: 10px;
+    margin-top: 10%;
     color: #FFF;
     font-weight: bold;
 
@@ -77,18 +77,19 @@ export const Descricao = styled.Text`
 
 export const BotaoSaberMais = styled.TouchableOpacity`
     width: 80%;
-    background-color: rgba(25, 26, 48, 0.8);
-    margin-top: 20px;
+    background-color: #f58a43;
+    margin-top: 10%;
     padding: 10px;
     border-radius: 8px;
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    border: 1px solid #FFF;
+    
 `;
 
 export const TextoBotao = styled.Text`
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     margin-left: 10px;
+    font-weight: bold;
 `;
