@@ -36,7 +36,16 @@ export default function CarrosList(){
         getCarros();   
     }
 
+    function formatReal( int )
+    {
+        var tmp = int+'';
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+        if( tmp.length > 6 )
+                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
 
+        return tmp;
+    }
+    
     return(
         <Container>
             <Header titulo="Carros" />
