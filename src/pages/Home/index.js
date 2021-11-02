@@ -17,7 +17,6 @@ import {
   } from './styles';
 import { Feather } from '@expo/vector-icons';
 import {} from 'react-native-gesture-handler';
-import SlideItem from '../../components/SlideItem';
 import SlideItensDestaque from '../../components/SlideItensDestaque';
 import Api from '../../services/api';
 import { getListaVeiculos} from '../../utils/veiculos';
@@ -86,7 +85,7 @@ export default function Home() {
 if(loading){
     return(
         <Container>
-            <Header titulo="Catálogo veículo" />
+            <Header titulo="Catálogo veículos" />
 
             
             <ActivityIndicator size="large" color="#FFF" />
@@ -96,7 +95,7 @@ if(loading){
 
  return (
     <Container>
-        <Header titulo="Catálogo veículo" />
+        <Header titulo="Catálogo veículos" />
 
         <SearchContainer>
             <Input
@@ -143,21 +142,29 @@ if(loading){
             
 
             <SlideVeiculos 
-            showsHorizontalScrollIndicator={false}
-            horizontal={true}
-            keyExtractor={ item => String(item.idVeiculo)}
-            data={Carros}
-            renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
+                showsHorizontalScrollIndicator={false}
+                horizontal={true}
+                keyExtractor={ item => String(item.idVeiculo)}
+                data={Carros}
+                renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
             />
 
-            <TituloBanner>Motos</TituloBanner>
+            <ContainerTitulo>
+
+                <TituloBanner>Motos</TituloBanner>
+
+                <BotaoVerMais onPress={ () => navigation.navigate("Motos")}>
+                    <TextoBotao>Ver mais</TextoBotao>
+                </BotaoVerMais>
+
+            </ContainerTitulo>
 
             <SlideVeiculos 
-            showsHorizontalScrollIndicator={false}
-            horizontal={true}
-            keyExtractor={ item => String(item.idVeiculo)}
-            data={Motos}
-            renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
+                showsHorizontalScrollIndicator={false}
+                horizontal={true}
+                keyExtractor={ item => String(item.idVeiculo)}
+                data={Motos}
+                renderItem={ ( { item }) => <SlideItensDestaque data={item} />}
             />
         </ScrollView>
     </Container>
