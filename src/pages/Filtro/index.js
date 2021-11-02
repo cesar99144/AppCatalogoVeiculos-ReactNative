@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import {useNavigation} from '@react-navigation/native';
 import { 
@@ -20,6 +20,8 @@ import {
 import {Feather} from '@expo/vector-icons';
 import { Picker } from "@react-native-picker/picker";
 
+import api from "../../services/api";
+
 export default function Filtro(){
 
     const navigation = useNavigation();
@@ -27,10 +29,24 @@ export default function Filtro(){
     const [preco, setPreco] = useState(0);
     const [ano, setAno] = useState(0);
 
+    const [listMarcas, setListMarcas] = useState([]);
+
     function pesquisar(){
 
         alert(ano)
     }
+
+    useEffect( () => {
+
+        async function getMarcas(){
+            const response = await api.get('/marcas');
+
+            setListMarcas(response.data);
+        }
+
+        getMarcas();
+
+    }, []);
 
     return(
         <Container>
@@ -43,12 +59,10 @@ export default function Filtro(){
                     />
                 </HeaderButton>
                 <Titulo>Filtro</Titulo>
-                <HeaderButton onPress={ () => navigation.goBack()}>
-                    
-                </HeaderButton>
+                
             </Header>
 
-            <SearchContainer>
+            {/* <SearchContainer>
                 <Input
                 placeholder="Veículos"
                 placeholderTextColor="#FFF"
@@ -56,7 +70,7 @@ export default function Filtro(){
                 <SearchButton>
                     <Feather name="search" size={30} color="#FFF" />
                 </SearchButton>
-            </SearchContainer>
+            </SearchContainer> */}
 
             <ContainerDropDow>
 
@@ -105,6 +119,10 @@ export default function Filtro(){
                             <Picker.Item style={styles.pickerItem} color="black" label="2015" value="2015" />
                             <Picker.Item style={styles.pickerItem} color="black" label="2016" value="2016" />
                             <Picker.Item style={styles.pickerItem} color="black" label="2017" value="2017" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2018" value="2017" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2019" value="2017" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2020" value="2017" />
+                            <Picker.Item style={styles.pickerItem} color="black" label="2021" value="2017" />
                         </Picker>
                     </DropDownList>
                 </AreaDropDow>
