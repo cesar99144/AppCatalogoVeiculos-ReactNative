@@ -32,7 +32,9 @@ export const TextTitulo = styled.Text`
 `;
 
 export const TextPreco = styled.Text`
-    font-size: 16px;
+    font-size: 17px;
+    color: teal;
+    font-weight: bold;
 `;
 
 export const BotaoVizualizar = styled.TouchableOpacity`
@@ -45,7 +47,7 @@ export const BotaoVizualizar = styled.TouchableOpacity`
 `;
 
 export const TextoBotao = styled.Text`
-    font-size: 13px;
+    font-size: 15px;
     color: #268596;
-    
+    font-weight: bold;
 `;
