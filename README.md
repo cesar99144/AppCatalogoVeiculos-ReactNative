@@ -15,3 +15,19 @@ Projeto de um aplicativo mobile para exibir um catálogo de veículos à venda. 
     <img src="ImagensProjeto/7.Drawer.png" alt="drawing" width="180">
     
 </p>
+
+<h3>Foi utilizado:</h3>
+<ul>
+    <li>React native expo</li> <br>
+    <li>Axios para as requisições HTTP</li> <br>
+</ul>
+
+<h3>Requisitos instalação:</h3>
+    <blockquote>
+       Expo instalado<br>
+       Npm do node para caso precise rodar algum pacote<br>
+       É fundamental que a <a href="https://github.com/cesar99144/Api-CatalogosVeiculos-NodeJS" target="_blank">api</a> do projeto esteja instalada em seu computador rodando no localhost:4000. Caso queira rodar a api em outra porta, altere a url do localhost na pasta <code>src\services\api.js</code>
+    </blockquote>
+    <blockquote>
+       No projeto acessei a api no emulador utilizando o endereço ip e a porta da api, por exemplo: <code>http://192.168.1.6:4000</code> Para conseguir executar seria necessário ajustar esses valores de acordo com seu ambiente de desenvolvimento
+    </blockquote>
