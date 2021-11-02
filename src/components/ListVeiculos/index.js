@@ -14,15 +14,24 @@ import{
 
 export default function ListVeiculos({data}){
 
-    
+    function formatReal( int )
+    {
+        var tmp = int+'';
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+        if( tmp.length > 6 )
+                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+
+        return tmp;
+    }
+
     return(
         <Container>
             <Card activeOpacity={0.7}>
-                <ImagemCapa source={{uri: `http://192.168.1.8:4000/imagensVeiculos/${data.primeiraImagem}`}} />
+                <ImagemCapa source={{uri: `http://192.168.1.6:4000/imagensVeiculos/${data.primeiraImagem}`}} />
                 <ContainerDescricao>
                     <TextTitulo>{data.tituloAnuncio}</TextTitulo>
                     <TextPreco>
-                        R$ {data.preco}
+                        R$ {formatReal(data.preco)}
                     </TextPreco>
                     <BotaoVizualizar onPress={ () => alert('hello') }>
                         <TextoBotao>Ver mais</TextoBotao>
