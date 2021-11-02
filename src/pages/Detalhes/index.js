@@ -51,6 +51,15 @@ export default function Detalhes(){
     }, [])
 
     
+    function formatReal( int )
+    {
+        var tmp = int+'';
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+        if( tmp.length > 6 )
+                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+
+        return tmp;
+    }
 
     return(
         
@@ -67,17 +76,17 @@ export default function Detalhes(){
              
             <Banner
                 resizeMethod="resize"
-                source={{ uri: `http://192.168.1.8:4000/imagensVeiculos/${route.params?.imagem}` }}
+                source={{ uri: `http://192.168.1.6:4000/imagensVeiculos/${route.params?.imagem}` }}
             />
 
             <ContainerInfo>
                 <Titulo>{route.params?.titulo}</Titulo>
-                <Titulo>R$ {route.params?.preco}</Titulo>
+                <Titulo>R$ {formatReal( route.params?.preco )}</Titulo>
             </ContainerInfo>
             
             <ContainerInfo>
                 <Info>
-                    <TextInfo>2013</TextInfo>
+                    <TextInfo>{route.params?.ano}</TextInfo>
                 </Info>
                 <Info>
                     <TextInfo>{route.params?.modelo}</TextInfo>
@@ -90,8 +99,9 @@ export default function Detalhes(){
             <Descricao>{route.params.descricao}</Descricao>
             
             <BotaoSaberMais>
-                <Feather name="phone" color="#FFF" size={36} />
-                <TextoBotao>Saber mais</TextoBotao>
+
+                <TextoBotao>Contato consultor</TextoBotao>
+
             </BotaoSaberMais>
         </Container>
         
