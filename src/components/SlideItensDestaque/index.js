@@ -27,7 +27,7 @@ export default function SlideItensDestaque({data}) {
   return (
     <Container activeOpacity={0.7} onPress={ () => navigateDetalhes(data)}>
         <BannerItem
-            source={{uri: `http://192.168.1.8:4000/imagensVeiculos/${data.primeiraImagem}`}}
+            source={{uri: `http://192.168.1.6:4000/imagensVeiculos/${data.primeiraImagem}`}}
         />
         <Titulo numberOfLines={1}>{data.tituloAnuncio}</Titulo>
     </Container>
