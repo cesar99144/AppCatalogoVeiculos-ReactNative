@@ -5,12 +5,30 @@ export const Container = styled.View`
     flex: 1;
 `;
 
-export const AreaCirculo = styled.View`
-    
+export const AreaTextos = styled.View`
+    width: 100%;
+    align-items: center;
+    margin-top: 50%;
 `;
 
-export const Circulo = styled.View`
- 
-   
-    
+export const Titulo = styled.Text`
+    font-size: 35px;
+    color: #FFF;
+    font-weight: bold;
+`;
+
+export const AreaSubtitulo = styled.View`
+    margin-top: 2%;
+    flex-direction: row;
+`;
+
+export const SubTitulo = styled.Text`
+    font-size: 22px;
+    color: #FFF;
+`;
+
+export const DestaqueSubTitulo = styled.Text`
+    color: #E85E2A;
+    font-size: 22px;
+    margin-left: 2%;
 `;
