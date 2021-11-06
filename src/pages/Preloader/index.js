@@ -3,8 +3,11 @@ import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { 
   Container,
-  AreaCirculo,
-  Circulo
+  AreaTextos,
+  Titulo,
+  AreaSubtitulo,
+  SubTitulo,
+  DestaqueSubTitulo
 } from './style';
 
 export default function Preloader() {
@@ -30,11 +33,14 @@ export default function Preloader() {
 
   return (
     <Container>
-      <AreaCirculo>
-          <Circulo>
-            <Text>sds</Text>
-          </Circulo>
-      </AreaCirculo>
+        <AreaTextos>
+            <Titulo>Catálogo veículos</Titulo>
+            
+            <AreaSubtitulo>
+                <SubTitulo>Procurou, achou,</SubTitulo>
+                <DestaqueSubTitulo>comprou</DestaqueSubTitulo>
+            </AreaSubtitulo>
+        </AreaTextos>
     </Container>
   );
 }
